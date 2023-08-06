@@ -1,0 +1,103 @@
+2023-08-06 17:28:06 [INFO] Question: 场均得分最高的运动员是谁
+2023-08-06 17:28:06 [INFO] Running PandasAI with openai LLM...
+2023-08-06 17:28:06 [INFO] Prompt ID: e1e5667b-cc62-4666-93c0-23ef60b19b44
+2023-08-06 17:28:06 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 17:28:06 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 17:29:29 [INFO] Question: 场均得分最高的运动员是谁
+2023-08-06 17:29:29 [INFO] Running PandasAI with openai LLM...
+2023-08-06 17:29:29 [INFO] Prompt ID: 491baf55-64bc-4e7c-98cc-7de6fb0173a7
+2023-08-06 17:29:33 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-i14C5***************************************kmYU. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-06 17:30:26 [INFO] Question: 场均得分最高的运动员是谁
+2023-08-06 17:30:26 [INFO] Running PandasAI with openai LLM...
+2023-08-06 17:30:26 [INFO] Prompt ID: 77ad0559-9bd7-452e-90c1-836652f305c4
+2023-08-06 17:30:30 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-eZSIT***************************************ANjn. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-06 17:32:26 [INFO] Question: 场均得分最高的运动员是谁
+2023-08-06 17:32:26 [INFO] Running PandasAI with openai LLM...
+2023-08-06 17:32:26 [INFO] Prompt ID: 0d76ab89-346a-47f5-9b55-0eccf8dd9dc1
+2023-08-06 17:32:32 [INFO] 
+                        Code generated:
+                        ```
+                        df['PTS'] = df['PTS'].astype(float)
+highest_scoring_player = df[df['PTS'] == df['PTS'].max()]['Player'].values[0]
+highest_scoring_player
+                        ```
+                    
+2023-08-06 17:32:32 [INFO] 
+Code running:
+```
+df['PTS'] = df['PTS'].astype(float)
+highest_scoring_player = df[df['PTS'] == df['PTS'].max()]['Player'].values[0]
+highest_scoring_player
+```
+2023-08-06 17:32:32 [INFO] Answer: Wilt Chamberlain*
+2023-08-06 17:32:32 [INFO] Executed in: 6.674692153930664s
+2023-08-06 19:57:08 [INFO] Question: 场均得分最高的运动员是谁
+2023-08-06 19:57:08 [INFO] Running PandasAI with openai LLM...
+2023-08-06 19:57:08 [INFO] Prompt ID: 95a2d3ca-d8d3-4f13-9a94-a64d25ef7ce3
+2023-08-06 19:57:08 [INFO] Using cached response
+2023-08-06 19:57:08 [INFO] 
+Code running:
+```
+df['PTS'] = df['PTS'].astype(float)
+highest_scoring_player = df[df['PTS'] == df['PTS'].max()]['Player'].values[0]
+highest_scoring_player
+```
+2023-08-06 19:57:08 [INFO] Answer: Wilt Chamberlain*
+2023-08-06 19:57:08 [INFO] Executed in: 0.012035369873046875s
+2023-08-06 19:59:59 [INFO] Question: 请你将场均得分前10的球员筛选出来，并用plt绘制条状图
+2023-08-06 19:59:59 [INFO] Running PandasAI with openai LLM...
+2023-08-06 19:59:59 [INFO] Prompt ID: 8dd4b0ee-ec20-4cce-8392-16687f134de9
+2023-08-06 20:00:02 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 20:00:06 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 21:55:00 [INFO] Question: 请你将场均得分前10的球员筛选出来，并用plt绘制条状图
+2023-08-06 21:55:00 [INFO] Running PandasAI with openai LLM...
+2023-08-06 21:55:00 [INFO] Prompt ID: 20168e04-792a-45e6-9e3a-4cda14c8d5b2
+2023-08-06 21:55:05 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 21:55:12 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))': /v1/chat/completions
+2023-08-06 21:55:27 [INFO] Question: 请你将场均得分前10的球员筛选出来，并用plt绘制条状图
+2023-08-06 21:55:27 [INFO] Running PandasAI with openai LLM...
+2023-08-06 21:55:27 [INFO] Prompt ID: 0d9495fd-d508-41e5-8882-970200da2e16
+2023-08-06 21:55:28 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 21:55:28 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:997)'))': /v1/chat/completions
+2023-08-06 21:55:57 [INFO] Question: 请你将场均得分前10的球员筛选出来，并用plt绘制条状图
+2023-08-06 21:55:57 [INFO] Running PandasAI with openai LLM...
+2023-08-06 21:55:57 [INFO] Prompt ID: a6f26807-7b23-4e61-9cc1-dfd071ca9777
+2023-08-06 21:56:10 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the dataframe
+df = pd.read_csv('data.csv')
+
+# Sort the dataframe by PTS in descending order
+df_sorted = df.sort_values(by='PTS', ascending=False)
+
+# Select the top 10 players by PTS
+top_10_players = df_sorted.head(10)
+
+# Plot the bar chart
+plt.bar(top_10_players['Player'], top_10_players['PTS'])
+plt.xlabel('Player')
+plt.ylabel('PTS')
+plt.title('Top 10 Players by PTS')
+plt.xticks(rotation=90)
+plt.show()
+                        ```
+                    
+2023-08-06 21:56:10 [INFO] 
+Code running:
+```
+df_sorted = df.sort_values(by='PTS', ascending=False)
+top_10_players = df_sorted.head(10)
+plt.bar(top_10_players['Player'], top_10_players['PTS'])
+plt.xlabel('Player')
+plt.ylabel('PTS')
+plt.title('Top 10 Players by PTS')
+plt.xticks(rotation=90)
+plt.show()
+plt.close('all')
+```
+2023-08-06 21:56:45 [INFO] Answer: None
+2023-08-06 21:56:45 [INFO] Executed in: 47.28501534461975s
