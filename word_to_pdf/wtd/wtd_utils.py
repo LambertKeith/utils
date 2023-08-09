@@ -4,8 +4,10 @@ import tkinter as tk
 
 from tkinter import filedialog
 import comtypes.client
+import traceback
 
 def save_file(file_path, label, label_frame):
+    print('转化中')
     label.destroy()
     label = tk.Label(label_frame, text="转化中。。。")
     label.pack()
@@ -21,7 +23,7 @@ def save_file(file_path, label, label_frame):
     file_name = os.path.basename(file_path)
     file_name = file_name.split('.')[0]
     pdf_file_path = get_desktop_path()+ '\\' + f"{file_name}.pdf"
-
+    print(pdf_file_path, file_path)
     # 初始化comtypes客户端
     word = comtypes.client.CreateObject("Word.Application")
     try:
@@ -41,6 +43,7 @@ def save_file(file_path, label, label_frame):
         label = tk.Label(label_frame, text="转换失败")
         label.pack()
         print(f"转换失败：{str(e)}")
+        traceback.print_exc(e)
     finally:
         # 退出Word应用程序
         word.Quit()

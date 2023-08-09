@@ -1,2 +1,20 @@
 # 运行
 streamlit run .\excel_operator_main.py 
+
+运行之前需要确认 llm_utils\config 存在
+
+# 文件说明
+excel_operator --> 主体代码文件，包括前后端的调用
+    - result_utils.py --> 后端调用
+    - streamlit_views.py -->前端界面
+llm_utils --> 存放AI模块的相关内容
+    - config --> 配置文件
+    - llm_utils.py --> OpenAI调用函数
+    
+result_data --> 生成的结果文件
+source_data --> 传入的待分析文件
+cmd.txt --> 项目说明
+dev_run.py --> 调试函数
+excel_operator_main.py --> 项目主入口
+pandasai.log --> OpenAI调用日志
+requirement.txt --> 依赖说明
