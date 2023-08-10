@@ -16,7 +16,7 @@ def main():
         with open(file_path, "wb") as f:
             f.write(uploaded_file.getbuffer())
         #显示读入的数据
-        df = pd.read_excel(uploaded_file)
+        df = pd.read_csv(file_path, encoding='gbk')
         st.write(df.head(10))
 
     input_text = st.text_input('输入分析需求')
@@ -25,7 +25,7 @@ def main():
         delete_all_files_in_directory('result_data')
         st.write(f'您输入的文本是: {input_text}')
         #获取结果
-        result = result_info(source_data_folder, input_text)
+        result = result_info(file_path, input_text)
 
         if result[0] != None:
             st.write(result[0])

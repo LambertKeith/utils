@@ -315,3 +315,124 @@ top_10_players.to_csv('result_data/top_10_players.csv', index=False)
 ```
 2023-08-10 01:08:49 [INFO] Answer: None
 2023-08-10 01:08:49 [INFO] Executed in: 0.8611223697662354s
+2023-08-11 00:26:21 [INFO] Question: 后卫中得分最高的是谁
+2023-08-11 00:26:21 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:26:21 [INFO] Prompt ID: 07005c39-f8eb-4fdb-8553-832474571ace
+2023-08-11 00:26:25 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-uu4sG***************************************4V4n. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-11 00:27:03 [INFO] Question: 后卫中得分最高的是谁
+2023-08-11 00:27:03 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:27:03 [INFO] Prompt ID: eeb8ccb0-52a1-4e19-8341-e9e3cf908b96
+2023-08-11 00:27:06 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-uu4sG***************************************4V4n. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-11 00:31:55 [INFO] Question: 后卫中得分最高的是谁
+2023-08-11 00:31:55 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:31:55 [INFO] Prompt ID: d7d93e6d-3faa-4395-90aa-6ab7bc642eb4
+2023-08-11 00:32:00 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-uu4sG***************************************4V4n. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-11 00:32:45 [INFO] Question: 后卫中得分最高的是谁
+2023-08-11 00:32:45 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:32:45 [INFO] Prompt ID: f0ec1b98-c2f4-4626-8b60-68f3121b2535
+2023-08-11 00:32:54 [INFO] 
+                        Code generated:
+                        ```
+                        df_guard = df[df['位置'] == 'SG']
+highest_score_guard = df_guard[df_guard['赛季总得分'] == df_guard['赛季总得分'].max()]['球员'].values[0]
+highest_score_guard
+                        ```
+                    
+2023-08-11 00:32:54 [INFO] 
+Code running:
+```
+df_guard = df[df['位置'] == 'SG']
+highest_score_guard = df_guard[df_guard['赛季总得分'] == df_guard['赛季总得分'].max()]['球员'].values[0]
+highest_score_guard
+```
+2023-08-11 00:32:54 [INFO] Answer: Michael Jordan*
+2023-08-11 00:32:54 [INFO] Executed in: 8.578442096710205s
+2023-08-11 00:36:13 [INFO] Question: 请统计出单赛季总得分最多的10位球员，并保存散点图和筛选得到的表格
+2023-08-11 00:36:13 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:36:13 [INFO] Prompt ID: 4075c25b-e32d-4522-b7d7-79e2246c87e1
+2023-08-11 00:36:30 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataframe
+df = pd.read_csv('data.csv')
+
+# Sort the dataframe by '赛季总得分' in descending order
+df_sorted = df.sort_values(by='赛季总得分', ascending=False)
+
+# Get the top 10 players with the highest '赛季总得分'
+top_10_players = df_sorted.head(10)
+
+# Save the scatter plot
+plt.scatter(top_10_players['球员'], top_10_players['赛季总得分'])
+plt.xlabel('球员')
+plt.ylabel('赛季总得分')
+plt.title('Top 10 Players with Highest Total Points in a Single Season')
+plt.savefig('scatter_plot.png')
+
+# Save the filtered table
+top_10_players.to_csv('filtered_table.csv', index=False)
+                        ```
+                    
+2023-08-11 00:36:30 [INFO] 
+Code running:
+```
+df_sorted = df.sort_values(by='赛季总得分', ascending=False)
+top_10_players = df_sorted.head(10)
+plt.scatter(top_10_players['球员'], top_10_players['赛季总得分'])
+plt.xlabel('球员')
+plt.ylabel('赛季总得分')
+plt.title('Top 10 Players with Highest Total Points in a Single Season')
+plt.savefig('scatter_plot.png')
+top_10_players.to_csv('filtered_table.csv', index=False)
+```
+2023-08-11 00:36:30 [INFO] Answer: None
+2023-08-11 00:36:30 [INFO] Executed in: 17.06822919845581s
+2023-08-11 00:37:32 [INFO] Question: 请统计出单赛季总得分最多的10位球员，并生成散点图和筛选得到的表格，将其保存至result_data目录下
+2023-08-11 00:37:32 [INFO] Running PandasAI with openai LLM...
+2023-08-11 00:37:32 [INFO] Prompt ID: fb02fc1d-66f3-431c-ae9c-ad04355fb915
+2023-08-11 00:37:50 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the dataframe from the csv file
+df = pd.read_csv('data.csv')
+
+# Sort the dataframe by '赛季总得分' column in descending order
+sorted_df = df.sort_values(by='赛季总得分', ascending=False)
+
+# Get the top 10 players with the highest '赛季总得分'
+top_10_players = sorted_df.head(10)
+
+# Save the filtered dataframe to a csv file
+top_10_players.to_csv('result_data/top_10_players.csv', index=False)
+
+# Create a scatter plot of '出场次数' vs '赛季总得分' for the top 10 players
+plt.scatter(top_10_players['出场次数'], top_10_players['赛季总得分'])
+plt.xlabel('出场次数')
+plt.ylabel('赛季总得分')
+plt.title('Top 10 Players - 出场次数 vs 赛季总得分')
+plt.savefig('result_data/scatter_plot.png')
+plt.show()
+                        ```
+                    
+2023-08-11 00:37:50 [INFO] 
+Code running:
+```
+sorted_df = df.sort_values(by='赛季总得分', ascending=False)
+top_10_players = sorted_df.head(10)
+top_10_players.to_csv('result_data/top_10_players.csv', index=False)
+plt.scatter(top_10_players['出场次数'], top_10_players['赛季总得分'])
+plt.xlabel('出场次数')
+plt.ylabel('赛季总得分')
+plt.title('Top 10 Players - 出场次数 vs 赛季总得分')
+plt.savefig('result_data/scatter_plot.png')
+plt.show()
+plt.close('all')
+```
+2023-08-11 00:37:50 [INFO] Answer: None
+2023-08-11 00:37:50 [INFO] Executed in: 18.220526695251465s

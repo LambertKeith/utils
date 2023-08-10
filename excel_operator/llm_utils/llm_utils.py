@@ -11,7 +11,8 @@ os.environ["https_proxy"] = "http://localhost:7890"
 
 def llm_quary(csv_path, prompt):
     #os.environ["https_proxy"] = "https://localhost:7890"
-    df = pd.read_csv(csv_path)
+    print(csv_path)
+    df = pd.read_csv(csv_path, encoding='gbk')
     
     OPENAI_API_KEY = config['openai_api_key']
     llm = OpenAI(api_token=OPENAI_API_KEY)
