@@ -436,3 +436,181 @@ plt.close('all')
 ```
 2023-08-11 00:37:50 [INFO] Answer: None
 2023-08-11 00:37:50 [INFO] Executed in: 18.220526695251465s
+2023-08-11 23:43:12 [INFO] Question: 2000年，出场次数超过70次的球员有哪些
+2023-08-11 23:43:12 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:43:12 [INFO] Prompt ID: 964c6de3-d4c6-4994-82f6-96562731a968
+2023-08-11 23:43:46 [INFO] Question: 2000年，出场次数超过70次的球员有哪些
+2023-08-11 23:43:46 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:43:46 [INFO] Prompt ID: f42cb889-9f10-45ac-ae28-ba9196cf21aa
+2023-08-11 23:44:33 [INFO] Question: 2000年，出场次数超过70次的球员有哪些
+2023-08-11 23:44:33 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:44:33 [INFO] Prompt ID: 82520098-8ca8-44fa-9164-05e72da399a7
+2023-08-11 23:45:16 [INFO] Question: 单赛季得分最高的球员是谁，他得了多少分
+2023-08-11 23:45:16 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:45:16 [INFO] Prompt ID: 3fd0714e-48c0-4423-85e0-e6993db38761
+2023-08-11 23:45:29 [INFO] 
+                        Code generated:
+                        ```
+                        # To find the player with the highest single-season score
+highest_score = df['赛季总得分'].max()
+player = df[df['赛季总得分'] == highest_score]['球员'].values[0]
+
+print("The player with the highest single-season score is", player)
+print("He scored", highest_score, "points.")
+                        ```
+                    
+2023-08-11 23:45:29 [INFO] 
+Code running:
+```
+highest_score = df['赛季总得分'].max()
+player = df[df['赛季总得分'] == highest_score]['球员'].values[0]
+print('The player with the highest single-season score is', player)
+print('He scored', highest_score, 'points.')
+```
+2023-08-11 23:45:29 [INFO] Answer: The player with the highest single-season score is Wilt Chamberlain*
+He scored 4029.0 points.
+2023-08-11 23:45:29 [INFO] Executed in: 12.921136379241943s
+2023-08-11 23:47:23 [INFO] Question: 单赛季得分最高的球员是谁，他得了多少分,回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-11 23:47:23 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:47:23 [INFO] Prompt ID: 3396cafb-d4fc-466a-a508-25af9bee706d
+2023-08-11 23:47:48 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the dataframe from the csv file
+df = pd.read_csv('data.csv')
+
+# Find the player with the highest season total score
+max_score = df['赛季总得分'].max()
+player = df.loc[df['赛季总得分'] == max_score, '球员'].values[0]
+
+# Print the result
+print("The player with the highest season total score is", player)
+print("He scored", max_score, "points in a single season")
+
+# Create a bar plot of the season total scores
+plt.figure(figsize=(10, 6))
+plt.bar(df['年份'], df['赛季总得分'])
+plt.xlabel('Year')
+plt.ylabel('Season Total Score')
+plt.title('Season Total Scores of Players')
+plt.xticks(rotation=45)
+plt.savefig('result_data/season_total_scores.png')
+
+# Save the processed dataframe to a new csv file
+df_processed = df[['年份', '球员', '赛季总得分']].copy()
+df_processed.to_csv('result_data/processed_data.csv', index=False)
+                        ```
+                    
+2023-08-11 23:47:48 [INFO] 
+Code running:
+```
+max_score = df['赛季总得分'].max()
+player = df.loc[df['赛季总得分'] == max_score, '球员'].values[0]
+print('The player with the highest season total score is', player)
+print('He scored', max_score, 'points in a single season')
+plt.figure(figsize=(10, 6))
+plt.bar(df['年份'], df['赛季总得分'])
+plt.xlabel('Year')
+plt.ylabel('Season Total Score')
+plt.title('Season Total Scores of Players')
+plt.xticks(rotation=45)
+plt.savefig('result_data/season_total_scores.png')
+df_processed = df[['年份', '球员', '赛季总得分']].copy()
+df_processed.to_csv('result_data/processed_data.csv', index=False)
+```
+2023-08-11 23:48:20 [INFO] Answer: The player with the highest season total score is Wilt Chamberlain*
+He scored 4029.0 points in a single season
+2023-08-11 23:48:20 [INFO] Executed in: 56.42939043045044s
+2023-08-11 23:50:44 [INFO] Question: 迈克尔乔丹平均得分最低的一个赛季是什么时候。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下，生成图片时需要保证中文字符可以显示
+2023-08-11 23:50:44 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:50:44 [INFO] Prompt ID: 04caa78a-a4e8-432e-93a5-44dbe5bc8abd
+2023-08-11 23:51:09 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataframe
+df = pd.read_csv('data.csv')
+
+# Convert the '年份' column to datetime
+df['年份'] = pd.to_datetime(df['年份'], format='%Y')
+
+# Filter the data for Michael Jordan
+michael_jordan_df = df[df['球员'] == 'Michael Jordan*']
+
+# Calculate the average score for each season
+michael_jordan_df['平均得分'] = michael_jordan_df['赛季总得分'] / michael_jordan_df['出场次数']
+
+# Find the season with the lowest average score
+lowest_avg_score_season = michael_jordan_df.loc[michael_jordan_df['平均得分'].idxmin(), '年份']
+
+# Plot the average score for each season
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=michael_jordan_df, x='年份', y='平均得分')
+plt.title('Michael Jordan Average Score by Season')
+plt.xlabel('Season')
+plt.ylabel('Average Score')
+plt.xticks(rotation=45)
+plt.savefig('result_data/average_score.png')
+
+# Save the processed dataframe to a csv file
+michael_jordan_df.to_csv('result_data/michael_jordan_df.csv', index=False)
+
+lowest_avg_score_season
+                        ```
+                    
+2023-08-11 23:51:09 [INFO] 
+Code running:
+```
+df['年份'] = pd.to_datetime(df['年份'], format='%Y')
+michael_jordan_df = df[df['球员'] == 'Michael Jordan*']
+michael_jordan_df['平均得分'] = michael_jordan_df['赛季总得分'] / michael_jordan_df['出场次数']
+lowest_avg_score_season = michael_jordan_df.loc[michael_jordan_df['平均得分'].idxmin(), '年份']
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=michael_jordan_df, x='年份', y='平均得分')
+plt.title('Michael Jordan Average Score by Season')
+plt.xlabel('Season')
+plt.ylabel('Average Score')
+plt.xticks(rotation=45)
+plt.savefig('result_data/average_score.png')
+michael_jordan_df.to_csv('result_data/michael_jordan_df.csv', index=False)
+lowest_avg_score_season
+```
+2023-08-11 23:54:44 [INFO] Question: 迈克尔乔丹平均得分最低的一个赛季是什么时候。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下，生成图片时需要保证中文字符可以显示
+2023-08-11 23:54:44 [INFO] Running PandasAI with openai LLM...
+2023-08-11 23:54:44 [INFO] Prompt ID: 2a43e074-f812-4b6d-b6d1-5449dea548f5
+2023-08-11 23:54:44 [INFO] Using cached response
+2023-08-11 23:54:44 [INFO] 
+Code running:
+```
+df['年份'] = pd.to_datetime(df['年份'], format='%Y')
+michael_jordan_df = df[df['球员'] == 'Michael Jordan*']
+michael_jordan_df['平均得分'] = michael_jordan_df['赛季总得分'] / michael_jordan_df['出场次数']
+lowest_avg_score_season = michael_jordan_df.loc[michael_jordan_df['平均得分'].idxmin(), '年份']
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=michael_jordan_df, x='年份', y='平均得分')
+plt.title('Michael Jordan Average Score by Season')
+plt.xlabel('Season')
+plt.ylabel('Average Score')
+plt.xticks(rotation=45)
+plt.savefig('result_data/average_score.png')
+michael_jordan_df.to_csv('result_data/michael_jordan_df.csv', index=False)
+lowest_avg_score_season
+```
+2023-08-11 23:54:47 [INFO] Answer: 2003-01-01 00:00:00
+2023-08-11 23:54:47 [INFO] Executed in: 3.6810741424560547s
+2023-08-12 00:14:40 [INFO] Question: 勒布朗詹姆斯三分命中率最高的赛季是哪一个，命中率为多少。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下，生成图片时需要保证中文字符可以显示
+2023-08-12 00:14:40 [INFO] Running PandasAI with openai LLM...
+2023-08-12 00:14:40 [INFO] Prompt ID: f5440e5d-b491-4a21-9c7e-1c2b786c99bf
+2023-08-12 00:14:47 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))': /v1/chat/completions
+2023-08-12 00:14:54 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))': /v1/chat/completions
+2023-08-12 00:16:33 [INFO] Question: 勒布朗詹姆斯三分命中率最高的赛季是哪一个，命中率为多少。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下，生成图片时需要保证中文字符可以显示
+2023-08-12 00:16:33 [INFO] Running PandasAI with openai LLM...
+2023-08-12 00:16:33 [INFO] Prompt ID: 3bfa6ab5-af74-4a24-9cd9-93778fe3dd4d
+2023-08-12 00:16:40 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))': /v1/chat/completions
+2023-08-12 00:16:47 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))': /v1/chat/completions

@@ -8,6 +8,7 @@ def result_info(csv_path, prompt):
     directory_path ='result_data'
     #获得回答
     answer = llm_quary(csv_path, prompt)
+    #print(answer)
     #获取生成结果
     file_list = []
     file_list = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
@@ -28,3 +29,39 @@ def delete_all_files_in_directory(directory_path):
         print("所有文件已成功删除。")
     except Exception as e:
         print(f"删除文件时出现错误：{e}")
+
+
+#检查是否存在png
+def find_png_files(directory_path):
+    # 确保指定的路径存在且是一个目录
+    if not os.path.exists(directory_path) or not os.path.isdir(directory_path):
+        return "Error: Invalid directory path."
+
+    # 保存 PNG 图片路径的列表
+    png_file_paths = []
+
+    # 遍历目录下的文件
+    for filename in os.listdir(directory_path):
+        if filename.lower().endswith(".png"):
+            file_path = os.path.join(directory_path, filename)
+            png_file_paths.append(file_path)
+
+    return png_file_paths
+
+
+#查找csv文件
+def find_csv_files(directory_path):
+    # 确保指定的路径存在且是一个目录
+    if not os.path.exists(directory_path) or not os.path.isdir(directory_path):
+        return "Error: Invalid directory path."
+
+    # 保存 CSV 文件路径的列表
+    csv_file_paths = []
+
+    # 遍历目录下的文件
+    for filename in os.listdir(directory_path):
+        if filename.lower().endswith(".csv"):
+            file_path = os.path.join(directory_path, filename)
+            csv_file_paths.append(file_path)
+
+    return csv_file_paths
