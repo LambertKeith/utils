@@ -1,5 +1,5 @@
 
-
+import pandas as pd
 import os
 from llm_utils.llm_utils import llm_quary
 
@@ -65,3 +65,24 @@ def find_csv_files(directory_path):
             csv_file_paths.append(file_path)
 
     return csv_file_paths
+
+
+def read_csv_files_to_dataframe(directory_path):
+    # 确保指定的路径存在且是一个目录
+    if not os.path.exists(directory_path) or not os.path.isdir(directory_path):
+        return "Error: Invalid directory path."
+
+    # 读取 CSV 文件并保存到 DataFrame
+    df = pd.DataFrame()
+
+    # 遍历目录下的文件
+    for filename in os.listdir(directory_path):
+        if filename.lower().endswith(".csv"):
+            file_path = os.path.join(directory_path, filename)
+            try:
+                data = pd.read_csv(file_path)
+                df = df.append(data, ignore_index=True)
+            except Exception as e:
+                print(f"Error reading file {filename}: {e}")
+
+    return df

@@ -18,5 +18,6 @@ def llm_quary(csv_path, prompt):
     llm = OpenAI(api_token=OPENAI_API_KEY)
 
     pandas_ai = PandasAI(llm)
-    response = pandas_ai.run(df, prompt=prompt+'。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下，生成图片时需要保证中文字符可以显示')
+    response = pandas_ai.run(df, prompt=prompt+'。回答的同时请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下')
+    print(response)
     return response

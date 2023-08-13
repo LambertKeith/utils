@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import pandas as pd
 from PIL import Image
-from excel_operator.result_utils import delete_all_files_in_directory, find_csv_files, find_png_files, result_info
+from excel_operator.result_utils import delete_all_files_in_directory, find_csv_files, find_png_files, read_csv_files_to_dataframe, result_info
 
 def main():
     source_data_folder = 'source_data'
@@ -27,8 +27,12 @@ def main():
         #获取结果
         result = result_info(file_path, input_text)
 
-        if result[0] != None:
+        #判断是否位df格式
+        if isinstance(result[0], pd.DataFrame):
+            st.table(result[0])
+        elif result[0] != None:
             st.write(result[0])
+
         if result[1] != []:
             #获取png列表
             png_list = find_png_files('result_data')
@@ -37,3 +41,6 @@ def main():
             for i in png_list:
                 image = Image.open(i)
                 st.image(image)
+            if csv_list != []:
+                st.table(read_csv_files_to_dataframe('result_data'))
+                
