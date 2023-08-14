@@ -2,7 +2,7 @@ import yaml
 
 
 def load_config():
-    file = open(r"llm_utils\config\llm_config2.yaml", 'r', encoding="utf-8")
+    file = open(r"llm_utils/config/llm_config2.yaml", 'r', encoding="utf-8")
     file_data = file.read()
     file.close()
 

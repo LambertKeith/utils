@@ -26,9 +26,10 @@ def main():
         st.write(f'您输入的文本是: {input_text}')
         #获取结果
         result = result_info(file_path, input_text)
-
+        print(result)
         #判断是否位df格式
         if isinstance(result[0], pd.DataFrame):
+            print('这是df')
             st.table(result[0])
         elif result[0] != None:
             st.write(result[0])
