@@ -30,7 +30,7 @@ def main():
     if st.button('确认'):
         #清理原来的文件
         delete_all_files_in_directory('result_data')
-        st.write(f'您输入的文本是: {input_text}')
+        #st.write(f'您输入的文本是: {input_text}')
         #获取结果
         result = result_info(file_path, input_text)
         print(result)
