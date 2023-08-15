@@ -2,11 +2,15 @@ import os
 import streamlit as st
 import pandas as pd
 from PIL import Image
-from excel_operator.result_utils import delete_all_files_in_directory, find_csv_files, find_png_files, read_csv_files_to_dataframe, result_info
+from excel_operator.result_utils import create_directory_if_not_exists, delete_all_files_in_directory, find_csv_files, find_png_files, read_csv_files_to_dataframe, result_info
 
 def main():
     source_data_folder = 'source_data'
-    st.title('上传 Excel 文件')
+    st.title('AI表格分析员')
+    st.info('上传你的表格，然后输入想要从表格中得到的信息')
+    #检查文件夹完整性
+    create_directory_if_not_exists('result_data')
+    create_directory_if_not_exists('result_data')
     #上传文件框
     delete_all_files_in_directory(source_data_folder)
     uploaded_file = st.file_uploader("选择文件", type=['xlsx', 'xls'])

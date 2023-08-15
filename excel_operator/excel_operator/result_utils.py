@@ -86,3 +86,16 @@ def read_csv_files_to_dataframe(directory_path):
                 print(f"Error reading file {filename}: {e}")
 
     return df
+
+
+#
+#判断文件夹是否存在，若不存在就新建
+def create_directory_if_not_exists(directory_path):
+    if not os.path.exists(directory_path):
+        try:
+            os.makedirs(directory_path)
+            print(f"文件夹 '{directory_path}' 已创建。")
+        except Exception as e:
+            print(f"创建文件夹 '{directory_path}' 失败：{e}")
+    else:
+        print(f"文件夹 '{directory_path}' 已存在。")

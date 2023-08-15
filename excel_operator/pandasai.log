@@ -1,0 +1,12 @@
+2023-08-15 15:23:35 [INFO] Question: 请回答：age的平均值。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 15:23:35 [INFO] Running PandasAI with openai LLM...
+2023-08-15 15:23:35 [INFO] Prompt ID: 04c6349b-368f-448e-aa68-05efff31294c
+2023-08-15 15:23:35 [INFO] Using cached response
+2023-08-15 15:23:35 [INFO] 
+Code running:
+```
+average_age = df['Age'].mean()
+average_age
+```
+2023-08-15 15:23:35 [INFO] Answer: 26.66440526486838
+2023-08-15 15:23:35 [INFO] Executed in: 0.0047609806060791016s

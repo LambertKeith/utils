@@ -1,4 +1,4 @@
-from excel_operator.result_utils import find_csv_files, find_png_files, read_csv_files_to_dataframe, result_info
+from excel_operator.result_utils import create_directory_if_not_exists, find_csv_files, find_png_files, read_csv_files_to_dataframe, result_info
 import llm_utils.llm_utils as utils
 
 def test1():
@@ -16,6 +16,9 @@ def test3():
 def test4():
     df = read_csv_files_to_dataframe(r'source_data')
     print(df)
-    
+
+def test5():
+    create_directory_if_not_exists('result_data')
+
 if __name__ == '__main__':
-    test4()
+    test5()
