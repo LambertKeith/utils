@@ -16,8 +16,11 @@ def main():
         with open(file_path, "wb") as f:
             f.write(uploaded_file.getbuffer())
         #显示读入的数据
-        df = pd.read_csv(file_path, encoding='gbk')
-        st.table(df.head(10))
+        try:
+            df = pd.read_csv(file_path, encoding='utf-8')
+            st.table(df.head(10))
+        except:
+            print("编码错误")
 
     input_text = st.text_input('输入分析需求')
     if st.button('确认'):

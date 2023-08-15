@@ -1427,3 +1427,134 @@ average_age
 ```
 2023-08-14 16:12:14 [INFO] Answer: 26.66440526486838
 2023-08-14 16:12:14 [INFO] Executed in: 5.6442694664001465s
+2023-08-15 09:39:20 [INFO] Question: 请回答：age的平均值。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 09:39:20 [INFO] Running PandasAI with openai LLM...
+2023-08-15 09:39:20 [INFO] Prompt ID: fea9c5bc-0b00-4427-a0d6-0ef47acbc70c
+2023-08-15 09:39:20 [INFO] Using cached response
+2023-08-15 09:39:20 [INFO] 
+Code running:
+```
+average_age = df['Age'].mean()
+average_age
+```
+2023-08-15 09:39:20 [INFO] Answer: 26.66440526486838
+2023-08-15 09:39:20 [INFO] Executed in: 0.003202676773071289s
+2023-08-15 09:40:09 [INFO] Question: 请回答：G的平均值。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 09:40:09 [INFO] Running PandasAI with openai LLM...
+2023-08-15 09:40:09 [INFO] Prompt ID: 74bf0e0f-f88f-4ae5-a7d1-ffcda6f9226c
+2023-08-15 09:40:14 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+
+# Load the dataframe
+df = pd.read_csv('data.csv')
+
+# Calculate the average of G column
+average_G = df['G'].mean()
+
+average_G
+                        ```
+                    
+2023-08-15 09:40:14 [INFO] 
+Code running:
+```
+average_G = df['G'].mean()
+average_G
+```
+2023-08-15 09:40:14 [INFO] Answer: 50.83711013645224
+2023-08-15 09:40:14 [INFO] Executed in: 4.7697436809539795s
+2023-08-15 10:11:57 [INFO] Question: 请回答：筛选出位置为小前锋的球员。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:11:57 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:11:57 [INFO] Prompt ID: 9689eb22-4568-4028-885f-36b7676ab7e8
+2023-08-15 10:12:00 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-fCCwo***************************************4H3L. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-15 10:12:31 [INFO] Question: 请回答：筛选出位置为小前锋的球员。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:12:31 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:12:31 [INFO] Prompt ID: 38ad1f2a-e3e4-44ef-b4ad-1326583dc916
+2023-08-15 10:12:34 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-fCCwo***************************************4H3L. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-15 10:13:05 [INFO] Question: 请回答：筛选出位置为小前锋的球员。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:13:05 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:13:05 [INFO] Prompt ID: af2ba92e-3353-46d5-9800-7bdd05dba4a0
+2023-08-15 10:13:11 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+
+# Read the dataframe from the csv file
+df = pd.read_csv('data.csv')
+
+# Filter the dataframe for players with position 'SF'
+sf_players = df[df['Pos'] == 'SF']
+
+# Display the filtered dataframe
+print(sf_players)
+
+# Save the filtered dataframe to a new csv file
+sf_players.to_csv('result_data/sf_players.csv', index=False)
+                        ```
+                    
+2023-08-15 10:13:11 [INFO] 
+Code running:
+```
+sf_players = df[df['Pos'] == 'SF']
+print(sf_players)
+```
+2023-08-15 10:13:11 [INFO] Answer: None
+2023-08-15 10:13:11 [INFO] Executed in: 6.662307500839233s
+2023-08-15 10:16:50 [INFO] Question: 请回答：筛选出位置为小前锋的球员。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:16:50 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:16:50 [INFO] Prompt ID: 5d272f19-6f2b-4b33-b5a9-666b363c9581
+2023-08-15 10:16:50 [INFO] Using cached response
+2023-08-15 10:16:50 [INFO] 
+Code running:
+```
+sf_players = df[df['Pos'] == 'SF']
+print(sf_players)
+```
+2023-08-15 10:16:50 [INFO] Answer: None
+2023-08-15 10:16:50 [INFO] Executed in: 0.11498212814331055s
+2023-08-15 10:17:13 [INFO] Question: 请回答：请筛选出所有的小前锋。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:17:13 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:17:13 [INFO] Prompt ID: 5e9dfd4f-0392-4c2f-bf01-feff74b6f5af
+2023-08-15 10:17:22 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+
+# Read the dataframe from the csv file
+df = pd.read_csv('data.csv')
+
+# Filter the dataframe for small forwards (Pos = SF)
+sf_df = df[df['Pos'] == 'SF']
+
+# Save the filtered dataframe to a new csv file
+sf_df.to_csv('result_data/sf_players.csv', index=False)
+
+# Generate a bar plot of the number of small forwards by year
+sf_count_by_year = sf_df.groupby('Year').size()
+sf_count_by_year.plot(kind='bar', figsize=(10, 6))
+plt.xlabel('Year')
+plt.ylabel('Number of Small Forwards')
+plt.title('Number of Small Forwards by Year')
+plt.savefig('result_data/sf_count_by_year.png')
+
+# Display the filtered dataframe
+sf_df.head()
+                        ```
+                    
+2023-08-15 10:17:22 [INFO] 
+Code running:
+```
+sf_df = df[df['Pos'] == 'SF']
+sf_count_by_year = sf_df.groupby('Year').size()
+sf_count_by_year.plot(kind='bar', figsize=(10, 6))
+plt.xlabel('Year')
+plt.ylabel('Number of Small Forwards')
+plt.title('Number of Small Forwards by Year')
+plt.savefig('result_data/sf_count_by_year.png')
+sf_df.head()
+```
+2023-08-15 10:17:23 [WARNING] Error of executing code
+2023-08-15 10:17:59 [INFO] Question: 请回答：小前锋中得分最高的是谁。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-08-15 10:17:59 [INFO] Running PandasAI with openai LLM...
+2023-08-15 10:17:59 [INFO] Prompt ID: 8c65979a-4fd7-40c6-bfa5-d74e7f16e255
