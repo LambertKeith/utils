@@ -1,0 +1,1 @@
+streamlit run --server.baseUrlPath "/app/b59a18fc52ce91d8cecce25f2c7808dada26ffd834430a8789e950a080d66023/" --browser.gatherUsageStats false --server.address 0.0.0.0  --server.port 25501 verbal_disorder_main.py

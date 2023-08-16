@@ -1,0 +1,21 @@
+app_id: a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa
+port: 26557
+uvicorn text_format_conversion_main:app --reload
+uvicorn text_format_conversion_main:app --host=0.0.0.0 --port=26557
+streamlit run --server.baseUrlPath "/app/a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa/" text_format_conversion_main.py
+streamlit run --server.baseUrlPath "/app/a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa/" --browser.gatherUsageStats false --server.address 0.0.0.0  --server.port 26557 text_format_conversion_main.py
+location /app/a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa/ {
+    proxy_buffer_size 4024k;
+    proxy_buffers 16 4024k;
+    proxy_busy_buffers_size 4048k;
+    proxy_temp_file_write_size 4048k;
+    client_body_buffer_size 16000k;
+    client_max_body_size 16000k;
+    proxy_http_version 1.1; 
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_read_timeout 86400;
+    proxy_pass http://localhost:26557/app/a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa/;    
+}

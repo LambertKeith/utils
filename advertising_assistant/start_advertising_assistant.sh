@@ -1,0 +1,1 @@
+streamlit run --server.baseUrlPath "/app/1d18bb029085e90e214e3f790983ef9615e9e8c16e8d8ed873f863fcd952d6d4/" --browser.gatherUsageStats false --server.address 0.0.0.0  --server.port 17578 advertising_assistant_main.py

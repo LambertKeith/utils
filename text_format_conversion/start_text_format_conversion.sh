@@ -1,0 +1,1 @@
+streamlit run --server.baseUrlPath "/app/a807208f8b474d053b2b42fc473403f8b5063c5181c26b08396073861e8cc5aa/" --browser.gatherUsageStats false --server.address 0.0.0.0  --server.port 26557 text_format_conversion_main.py

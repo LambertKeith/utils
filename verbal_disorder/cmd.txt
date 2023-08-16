@@ -1,0 +1,2 @@
+# 运行命令
+streamlit run verbal_disorder_main.py
