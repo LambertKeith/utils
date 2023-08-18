@@ -13,13 +13,15 @@ def main():
     # 添加按钮
     if st.button('选号'):
         # 生成随机数据
+        red_numbers = random.sample(range(1, 34), 6)
+
         new_row = {
-            'red1': random.randint(1, 33),
-            'red2': random.randint(1, 33),
-            'red3': random.randint(1, 33),
-            'red4': random.randint(1, 33),
-            'red5': random.randint(1, 33),
-            'red6': random.randint(1, 33),
+            'red1': red_numbers[0],
+            'red2': red_numbers[1],
+            'red3': red_numbers[2],
+            'red4': red_numbers[3],
+            'red5': red_numbers[4],
+            'red6': red_numbers[5],
             'blue': random.randint(1, 16)
         }
         # 将新行添加到数据框
