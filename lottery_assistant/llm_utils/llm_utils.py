@@ -37,8 +37,8 @@ def llm_chat(text):
 
 
 def base_chat(message,model="gpt-3.5-turbo-0301"):
-    os.environ["http_proxy"] = "http://localhost:7890"
-    os.environ["https_proxy"] = "http://localhost:7890"
+    #os.environ["http_proxy"] = "http://localhost:7890"
+    #os.environ["https_proxy"] = "http://localhost:7890"
     openai.api_key = config['openai_api_key']
     openai.api_base = config['openai_base']
     prompt = f"请你根据以下要求为我一个人说一段单口相声：结合{message[0]}，{message[1]}，{message[2]}，{message[3]}，{message[4]}，{message[5]}以及{message[6]}这几个数字，请你从祝贺、恭喜我发财的角度（也就是我还没有发财），结合这几个数字说一段吉利话，你的表演请直接从第一个数字开始，不要打招呼，你的观众只有我一个人，你只用称呼我一个人就行"

@@ -1,3 +1,4 @@
 app:    
-    openai_api_key: 
-    openai_base: 
+    openai_api_key: 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
+    openai_base: https://api.laibutech.com/v1
+
