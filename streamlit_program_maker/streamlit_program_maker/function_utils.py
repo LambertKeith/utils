@@ -5,7 +5,7 @@ import os
 
 def generate_main_file(name):
     file_name = f"{name}_main.py"
-    content = f"from {name}.views import main\n\nif __name__ == '__main__':\n    main()"
+    content = f"from {name}.{name}_views import main\n\nif __name__ == '__main__':\n    main()"
 
     with open(file_name, "w") as file:
         file.write(content)
