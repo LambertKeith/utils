@@ -1,0 +1,27 @@
+app_id: b63ec11fb596e2d7ec7cc3bb849ee2589e13e401126a0fa317279c38a92b39b5
+
+port: 11864
+
+uvicorn love_talk_main:app --reload
+
+uvicorn love_talk_main:app --host=0.0.0.0 --port=11864
+
+streamlit run --server.baseUrlPath "/app/b63ec11fb596e2d7ec7cc3bb849ee2589e13e401126a0fa317279c38a92b39b5/" love_talk_main.py
+
+streamlit run --server.baseUrlPath "/app/b63ec11fb596e2d7ec7cc3bb849ee2589e13e401126a0fa317279c38a92b39b5/" --browser.gatherUsageStats false --server.address 0.0.0.0  --server.port 11864 love_talk_main.py
+
+location /app/b63ec11fb596e2d7ec7cc3bb849ee2589e13e401126a0fa317279c38a92b39b5/ {
+    proxy_buffer_size 4024k;
+    proxy_buffers 16 4024k;
+    proxy_busy_buffers_size 4048k;
+    proxy_temp_file_write_size 4048k;
+    client_body_buffer_size 16000k;
+    client_max_body_size 16000k;
+    proxy_http_version 1.1; 
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_read_timeout 86400;
+    proxy_pass http://localhost:11864/app/b63ec11fb596e2d7ec7cc3bb849ee2589e13e401126a0fa317279c38a92b39b5/;    
+}
