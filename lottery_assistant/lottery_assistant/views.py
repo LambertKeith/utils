@@ -17,6 +17,7 @@ def main():
     if st.button('选号'):
         # 生成随机数据
         red_numbers = random.sample(range(1, 34), 6)
+        red_numbers.sort()
         blue = random.randint(1, 16)
         
 
