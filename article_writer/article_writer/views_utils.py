@@ -62,17 +62,16 @@ def prompts_manage(key_list):
 
 
 #提示词组合函数
-def combination_prompts(key_list, prompts_info):
+def combination_prompts(key_list, add_info, prompts_info):
     prompt = get_value(key_list[0], key_list[1])["提示词"]
     #根据调度函数的功能选择组合类型
     if prompts_manage(key_list) == 0:
         prompt += f'{prompts_info[0]}。'
     else:
         prompt += f'你的身份是{prompts_info[0]}，这篇文章的读者或者听者是{prompts_info[1]}，文章的主要内容关于{prompts_info[2]}。'
+    prompt += f'文章还必须满足：{add_info}'
     return prompt
 
 
-#添加附加信息
-def add_info_to_prompt(addinfo, prompt):
-    #获取附加信息类目
-    add_list = get_first_level_keys_addinfo()
+
+        

@@ -1,6 +1,6 @@
 import time
 import streamlit as st
-from article_writer.views_utils import combination_prompts, get_first_level_keys, get_second_level_keys, prompts_manage
+from article_writer.views_utils import combination_prompts, get_first_level_keys, get_first_level_keys_addinfo, get_json_data_addinfo, get_second_level_keys, prompts_manage
 
 from llm_utils.llm_utils import base_chat
 from PIL import Image
@@ -18,24 +18,25 @@ def main():
     st.image(head_image, use_column_width=True)
     st.title("📝文章生成器🤔")    
     #写作小类
-
     artical_type2_list = get_second_level_keys(artical_type)
     artical_type2 = st.radio('选择文种', artical_type2_list, horizontal=True)
     #获取提示窗体类别
-    print(prompts_manage([artical_type, artical_type2]))
+    #print(prompts_manage([artical_type, artical_type2]))
     prompt_info = []
     if prompts_manage([artical_type, artical_type2]) == 0:
         prompt_info = view_prompt_0()
     else:
         prompt_info = view_prompt_1()
-    answer = ''
-
+    #附加信息
+    add_info = add_info_view()
+    #st.info(add_info)
     #点击生成
+    answer = ''
     create = st.button('生成')
     if create:
         if prompt_info != []:
             with st.spinner('生成中。。。'):
-                answer = base_chat(combination_prompts([artical_type, artical_type2], prompt_info))
+                answer = base_chat(combination_prompts([artical_type, artical_type2], add_info ,prompt_info))
                 st.write('',answer)
         else:
             st.info('请输入必要的提示信息')
@@ -72,5 +73,19 @@ def view_prompt_1():
 
 #附加信息
 def add_info_view():
+    #获取附加信息条目列表
+    add_list = get_first_level_keys_addinfo()
+    output = {}
+    for i in add_list:
+        #字数默认值为200
+        if i == '字数':
+            index = 2
+        else:
+            index = 0
+        inner_list = get_json_data_addinfo()[i]
+        item = st.radio(i, inner_list, horizontal=True, index=index)
+        output[i] = item
+
+    return output
+
     
-    pass
