@@ -1,5 +1,5 @@
 app:    
     openai_api_key: 
-    openai_base: 
+    openai_base: https://api.laibutech.com/v1
 
 
