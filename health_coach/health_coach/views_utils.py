@@ -24,9 +24,9 @@ def interpret_bmi(bmi):
     """
     if bmi < 18.5:
         return "体重过轻"
-    elif bmi < 24.9:
+    elif bmi < 24.9 and bmi >= 18.5:
         return "正常范围"
-    elif bmi < 29.9:
+    elif bmi >= 24.9 and bmi < 29.9:
         return "超重"
     else:
         return "肥胖"
