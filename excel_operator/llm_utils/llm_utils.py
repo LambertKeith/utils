@@ -15,7 +15,7 @@ def llm_quary(csv_path, prompt):
     openai.api_base = config['openai_base']
     openai.api_key = config['openai_api_key']
     print(csv_path) 
-    df = pd.read_csv(csv_path, encoding='gbk')
+    df = pd.read_csv(csv_path)
     llm = OpenAI(api_token=openai.api_key)
 
     pandas_ai = PandasAI(llm)
