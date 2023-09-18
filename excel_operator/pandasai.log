@@ -10,3 +10,73 @@ average_age
 ```
 2023-08-15 15:23:35 [INFO] Answer: 26.66440526486838
 2023-08-15 15:23:35 [INFO] Executed in: 0.0047609806060791016s
+2023-09-18 23:23:36 [INFO] Question: 请回答：NBA三分球投得最好的是谁。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-09-18 23:23:36 [INFO] Running PandasAI with openai LLM...
+2023-09-18 23:23:36 [INFO] Prompt ID: 38439dc3-b0ff-46a0-8bf3-942b566f0afc
+2023-09-18 23:23:47 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+
+# Load the dataframe
+df = pd.read_csv('data.csv')
+
+# Filter the dataframe to include only players who have attempted at least one three-pointer
+df_filtered = df[df['三分球出手次数'] > 0]
+
+# Sort the dataframe by three-point shooting percentage in descending order
+df_sorted = df_filtered.sort_values(by='三分球命中率', ascending=False)
+
+# Get the player with the highest three-point shooting percentage
+best_three_point_shooter = df_sorted.iloc[0]['球员']
+
+# Print the result
+print("NBA三分球投得最好的是:", best_three_point_shooter)
+                        ```
+                    
+2023-09-18 23:23:47 [INFO] 
+Code running:
+```
+df_filtered = df[df['三分球出手次数'] > 0]
+df_sorted = df_filtered.sort_values(by='三分球命中率', ascending=False)
+best_three_point_shooter = df_sorted.iloc[0]['球员']
+print('NBA三分球投得最好的是:', best_three_point_shooter)
+```
+2023-09-18 23:23:47 [WARNING] Error executing code (count: 0)
+2023-09-18 23:25:22 [INFO] Question: 请回答：三分球最准的球员是谁。回答的同时请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下
+2023-09-18 23:25:22 [INFO] Running PandasAI with openai LLM...
+2023-09-18 23:25:22 [INFO] Prompt ID: c1370d4e-146d-4bb8-823e-366dc21317f8
+2023-09-18 23:25:35 [INFO] 
+                        Code generated:
+                        ```
+                        import pandas as pd
+
+# Load the dataframe
+df = pd.read_csv('data.csv')
+
+# Filter the dataframe to include only players who have attempted at least one three-pointer
+df_filtered = df[df['三分球出手次数'] > 0]
+
+# Calculate the three-point shooting percentage for each player
+df_filtered['三分球命中率'] = df_filtered['三分球命中次数'] / df_filtered['三分球出手次数']
+
+# Sort the dataframe by three-point shooting percentage in descending order
+df_sorted = df_filtered.sort_values(by='三分球命中率', ascending=False)
+
+# Get the player with the highest three-point shooting percentage
+best_player = df_sorted.iloc[0]['球员']
+
+# Print the result
+print("The player with the highest three-point shooting percentage is:", best_player)
+                        ```
+                    
+2023-09-18 23:25:35 [INFO] 
+Code running:
+```
+df_filtered = df[df['三分球出手次数'] > 0]
+df_filtered['三分球命中率'] = df_filtered['三分球命中次数'] / df_filtered['三分球出手次数']
+df_sorted = df_filtered.sort_values(by='三分球命中率', ascending=False)
+best_player = df_sorted.iloc[0]['球员']
+print('The player with the highest three-point shooting percentage is:', best_player)
+```
+2023-09-18 23:25:35 [WARNING] Error executing code (count: 0)

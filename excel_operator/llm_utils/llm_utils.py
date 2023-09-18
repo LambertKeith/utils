@@ -15,10 +15,10 @@ def llm_quary(csv_path, prompt):
     openai.api_base = config['openai_base']
     openai.api_key = config['openai_api_key']
     print(csv_path) 
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, encoding='gbk')
     llm = OpenAI(api_token=openai.api_key)
 
     pandas_ai = PandasAI(llm)
-    response = pandas_ai.run(df, prompt='请回答：'+prompt+'。请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下')
+    response = pandas_ai.run(df, prompt='请回答：'+prompt+'。回答的同时请判断是否需要生成图片或者表格，如有必要请生成图片以及处理之后的表格，将图片和表格保存至result_data目录下')
     print(response)
     return response
